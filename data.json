@@ -1,0 +1,21 @@
+{
+    "user": {
+    },
+    "datos": [
+        {
+            "id": 1,
+            "name": "mate",
+            "text": "Mate"
+        },
+        {
+            "id": 11,
+            "name": "cafe",
+            "text": "Café"
+        },
+        {
+            "id": 9,
+            "name": "te",
+            "text": "Té"
+        }
+    ]
+}
