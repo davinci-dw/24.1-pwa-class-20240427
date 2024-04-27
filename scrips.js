@@ -14,6 +14,21 @@ const mostrarDatos = (datos) => {
     })
 } 
 
+const mostrarItem = (item) => {
+    const lista = document.querySelector('.historial');
+    const tarjeta = document.createElement('div');
+    tarjeta.className="item"; 
+    tarjeta.innerText = JSON.stringify(item)
+    lista.appendChild(tarjeta);
+}
+
+const mostrarHistorial = () => {
+    const datos = JSON.parse(localStorage.getItem("historial")) || [];
+    datos.forEach(item => {
+        mostrarItem(item);
+    })
+}
+
 const consultarDatos = async () => {
     const response = await fetch(URL);
     const data = await response.json();
@@ -29,3 +44,5 @@ const consultarDatos = async () => {
 consultarDatos().then(datos => {
     mostrarDatos(datos);
 })
+
+mostrarHistorial();
