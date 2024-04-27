@@ -51,7 +51,14 @@ const consultarDatos = async () => {
 }
 
 consultarDatos().then(datos => {
-    mostrarDatos(datos);
+    
+    const busqueda = document.getElementById("busqueda");
+    busqueda.addEventListener("search", (e)=> {
+        console.log(e.target.value)
+        //se filtra el array
+        mostrarDatos(datos); // muestro el array filtrado
+    });
+
 })
 
 mostrarHistorial();
