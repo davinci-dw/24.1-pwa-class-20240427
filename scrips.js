@@ -1,11 +1,20 @@
 const URL = "http://localhost:3000/data.json";
 
+const guardarInfusion = (infusion) => {
+    const datos = JSON.parse(localStorage.getItem("historial")) || [];
+    datos.push(infusion);
+    localStorage.setItem("historial", JSON.stringify(datos))
+}
+
 const mostrarTarjeta = (infusion) => {
     const lista = document.querySelector('.lista');
     const tarjeta = document.createElement('div');
     tarjeta.className="tarjeta"; 
     tarjeta.innerText = JSON.stringify(infusion)
     lista.appendChild(tarjeta);
+    tarjeta.addEventListener("click", ()=> {
+        guardarInfusion(infusion);
+    });
 } 
 
 const mostrarDatos = (datos) => {
